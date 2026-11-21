@@ -1,15 +1,15 @@
 # Example: A Pull Request
 
-This showcases an example of a pull request that provides an issue's deliverables and leaves the issue open, because one criterion is met only after release.
+This showcases an example of a pull request that provides an issue's deliverables and closes it. One verification box stays unchecked, because what it names was not proven by this change.
 
-It was rewritten from a pull request in a separate repository. Its issue is the one in [work-item-deliverable.md](work-item-deliverable.md).
+It was rewritten from a pull request in a separate repository. Its issue is the one in [defect.md](defect.md).
 
 **Fields:**
 
 ```json
 {
   "title": "fix(env): backfill PATHEXT and peers for Nushell children on Windows",
-  "branch": "pathext-omission",
+  "branch": "fix/pathext-omission",
   "draft": false
 }
 ```
@@ -23,7 +23,7 @@ Nushell children inherit the server's environment unchanged. When the host launc
 
 This adds `withEssentials` (`src/env.ts`), a Windows-only backfill applied at every nu spawn site: `PATHEXT`, `COMSPEC` and `TMP` take the host's value when present and a Windows default otherwise. Behavior on POSIX hosts is unchanged.
 
-Refs #2
+Closes #2
 
 ## Verification
 
@@ -34,5 +34,5 @@ Refs #2
 
 ## Before merging
 
-- The issue stays open after the merge: its last criterion, the published release, is met by the release step.
+None.
 ```

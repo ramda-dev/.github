@@ -1,9 +1,9 @@
-# Example: An Initiative with Leaves
+# Example: A Parent with Leaves
 
 This showcases an example of a parent issue with sub-issues.
 
 It was rewritten from a separate repository's work that contained several deliverables and was filed as a single issue.
-It is split here to show how the sections divide between a parent and its sub-issues: the parent states the outcome, and each sub-issue carries its own deliverables.
+It is split here to show how the sections divide between a parent and its sub-issues: the parent uses the shape of its leaves' work and states the outcome, and each sub-issue carries its own deliverables.
 
 ## Parent
 
@@ -22,9 +22,25 @@ It is split here to show how the sections divide between a parent and its sub-is
 **Body:**
 
 ```md
-### Context
+### Observed
 
-The test suite assumes a POSIX host. Under Windows Bun, tests fail for reasons unrelated to the code they cover: temp paths handed to nu in double quotes are read as escape sequences, `--include-path` fragments drive-letter paths, and one test spawns the `sleep` external, which Windows lacks.
+The test suite assumes a POSIX host. Under Windows Bun, tests fail for reasons unrelated to the code they cover. The suite should pass on Windows as it does on Linux.
+
+### Location
+
+The test suite, run under Windows Bun from the WSL share with `--cwd`.
+
+### Cause
+
+Three assumptions: temp paths handed to nu in double quotes are read as escape sequences, `--include-path` fragments drive-letter paths, and one test spawns the `sleep` external, which Windows lacks.
+
+### Impact
+
+Every run of the suite on Windows.
+
+### Approach
+
+One sub-issue per cause.
 
 ### Deliverables
 
@@ -41,6 +57,10 @@ Any issues identified with the deliverables after their issues are closed are op
 
 - [ ] `bun test` passes under Windows Bun (1.4.x, nu 0.114.x) run from the WSL share with `--cwd`
 - [ ] No test is skipped or weakened to get there
+
+### Verification
+
+`bun test` under Windows Bun, run from the WSL share with `--cwd`.
 
 ### Excluded
 
@@ -64,9 +84,25 @@ Any issues identified with the deliverables after their issues are closed are op
 **Body:**
 
 ```md
-### Context
+### Observed
+
+On Windows, an `includeDirs` path that carries a drive letter does not reach nu whole, and the raw-vehicle `includeDirs` test fails from a UNC working directory. Each directory should reach nu as it was given.
+
+### Location
+
+`src/env.ts`, where the environment of a nu child is built.
+
+### Cause
 
 `includeDirs` reaches nu through the `--include-path` flag, which fragments drive-letter paths on Windows.
+
+### Impact
+
+Any caller that passes `includeDirs` on Windows.
+
+### Approach
+
+Prepend `includeDirs` to `NU_LIB_DIRS` with the platform separator, replacing the flag.
 
 ### Deliverables
 
@@ -80,4 +116,8 @@ None.
 ### Criteria
 
 - [ ] The raw-vehicle `includeDirs` test passes from a UNC working directory
+
+### Verification
+
+`bun test test/env.test.ts`, then the raw-vehicle `includeDirs` test from a UNC working directory.
 ```
