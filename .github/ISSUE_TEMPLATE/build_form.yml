@@ -1,0 +1,68 @@
+name: Build form
+description: Something new, or a change made by intent
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Readiness.** File a build only when its source exists and no choice is left open. A choice still to be made is filed as an inquiry.
+
+        Every section stays in the body; write `None.` where one has nothing to say. The optional sections `### Constraints` and `### Excluded` are added by editing the issue after it is created. Filled examples: https://github.com/ramda-dev/.github/tree/main/examples
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: 'The outcome, and what it is for.'
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: 'What defines the work: the specification, decision or issue it follows, as a link. Write "This issue." when nothing else defines it. A source that does not exist yet means the issue is not ready.'
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: 'Where the change goes: the modules, files or interfaces it adds or touches.'
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Approach
+      description: 'The design in brief, and any alternative set aside. A choice still to be made belongs in an inquiry, not here.'
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: 'Artifacts this issue produces, one per line: `path or URL` - what it is. Write "None." when the work leaves no artifact.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: actionables
+    attributes:
+      label: Actionables
+      description: 'Steps that leave no artifact of their own. Write "None." when every step is a deliverable.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Criteria
+      description: 'Statements that are either true or false once the work is done.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: 'The command or steps that check the criteria.'
+    validations:
+      required: true

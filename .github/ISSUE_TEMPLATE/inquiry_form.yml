@@ -1,0 +1,40 @@
+name: Inquiry form
+description: A question to answer or a decision to make; the outcome is an answer, and the issue that follows from it
+type: inquiry
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Outcomes.** An inquiry closes in one of two ways. Either the answer calls for no work, and the matter ends with the answer recorded here. Or it calls for work, and the issue that holds the work is this inquiry's deliverable, ready to start.
+
+        The optional section `### Excluded` is added by editing the issue after it is created. Filled examples: https://github.com/ramda-dev/.github/tree/main/examples
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: 'The question, stated so that it has an answer.'
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: 'What prompted it, what it blocks, and the options already in view.'
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: 'The issue that follows from the answer. Filed only if the answer finds something: a conditional line that opens with "If" and the answer that calls for it. Already standing as a candidate: its reference, then the section the answer fills.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Criteria
+      description: 'What a sufficient answer contains, and where it is recorded.'
+      value: '- [ ] '
+    validations:
+      required: true
