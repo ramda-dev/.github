@@ -1,0 +1,75 @@
+name: Defect form
+description: Something behaves wrongly, and the cause is known
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Readiness.** File a defect only when its cause is known and no choice is left open. If the cause is not known, or a choice is still to be made, file an inquiry instead.
+
+        Every section stays in the body; write `None.` where one has nothing to say. The optional sections `### Constraints` and `### Excluded` are added by editing the issue after it is created. Filled examples: https://github.com/ramda-dev/.github/tree/main/examples
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed
+      description: 'What happens, and what should happen instead.'
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: 'Where it lives: files, functions or entry points, as paths from the repository root.'
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: Cause
+      description: 'The mechanism that produces what is observed. If the cause is not known, file an inquiry instead and link its answer here.'
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: 'Who or what is affected, and the conditions that trigger it.'
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Approach
+      description: 'The change intended. A choice still to be made belongs in an inquiry, not here.'
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: 'Artifacts this issue produces, one per line: `path or URL` - what it is.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: actionables
+    attributes:
+      label: Actionables
+      description: 'Steps that leave no artifact of their own. A defect that has not been reproduced opens with the step that reproduces it, by the method its test will use. Write "None." when every step is a deliverable.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Criteria
+      description: 'Statements that are either true or false once the work is done.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: 'The command or steps that check the criteria.'
+    validations:
+      required: true

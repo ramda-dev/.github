@@ -1,0 +1,47 @@
+name: Release form
+description: A version of the repository is cut
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The issues a release waits on are linked as blockers, not listed in the body.
+
+        Every section stays in the body; write `None.` where one has nothing to say. The optional sections `### Constraints` and `### Excluded` are added by editing the issue after it is created. Filled examples: https://github.com/ramda-dev/.github/tree/main/examples
+  - type: textarea
+    id: version
+    attributes:
+      label: Version
+      description: 'The version, its milestone, and what it holds.'
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: 'What the release publishes, one per line: `URL` - what it is.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: actionables
+    attributes:
+      label: Actionables
+      description: 'The release steps: version bump, tag, publication.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Criteria
+      description: 'Statements that are either true or false once the version is out.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: 'The command or steps that check the criteria.'
+    validations:
+      required: true

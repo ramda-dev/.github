@@ -1,0 +1,61 @@
+name: Research form
+description: Knowledge work whose output is a document or a record
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Readiness.** File research only when each deliverable is named, the work has a condition under which it is finished, and someone is named to accept it.
+
+        Every section stays in the body; write `None.` where one has nothing to say. The optional sections `### Constraints` and `### Excluded` are added by editing the issue after it is created. Filled examples: https://github.com/ramda-dev/.github/tree/main/examples
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: 'What the work establishes, and what it feeds.'
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: 'The material covered, and where it stops.'
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Method
+      description: 'How the work is done.'
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: 'Documents or records this issue produces, one per line: `path or URL` - what it is. Each needs the place it is saved, or an actionable that declares it once the deliverable is complete.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: actionables
+    attributes:
+      label: Actionables
+      description: 'Steps that leave no artifact of their own. Write "None." when every step is a deliverable.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Criteria
+      description: 'The conditions under which the work is finished, each either true or false.'
+      value: '- [ ] '
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: 'How the result is accepted: who reviews it, and against what.'
+    validations:
+      required: true
